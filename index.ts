@@ -1,6 +1,13 @@
-import { createServer } from 'http';
+import * as 
+express from "express";
 
-createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
-}).listen(3000, '127.0.0.1');
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+const port = "3001";
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
